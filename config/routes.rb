@@ -13,9 +13,11 @@ Rails.application.routes.draw do
   end
   # Nest menu inside guests and orders inside guests
   resources :guests do
-    resources :orders, :items
+    resources :items
   end
 
+
+  resources :orders
   # 300/table/2/guest
   #
   # 3000/guest/6/order

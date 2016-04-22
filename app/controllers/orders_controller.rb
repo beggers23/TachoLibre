@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
 
   def create
-    @order = Order.create order_params
+    order = Order.create order_params
     redirect_to guest_items_path(params[:id])
   end
 

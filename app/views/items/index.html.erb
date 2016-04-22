@@ -7,7 +7,7 @@
       <ul>
       <% @nachos.each do |n| %>
         <%= form_for @order do |f| %>
-          <%= f.hidden_field :guest_id, value: @guest %>
+          <%= f.hidden_field :guest_id, value: @guest.id %>
           <%= f.hidden_field :item_id, value: n.id %>
           <%= f.submit "#{n.name} : $#{n.price}" %>
         <% end %>
