@@ -5,10 +5,10 @@
 <div class='container' id='receipt'>
   <!-- Each order will just be added to a list of orders that will show up on the view looking like a reciept -->
   <% @orders.each do |order| %>
-    <%= order.item.name %>
+    <p><%= order.item.name %> | $<%= order.item.price %> <%= link_to 'X', order_path(order), method: :delete %></p>
   <% end %>
 
-
+  <h1>Total $<%= @total %></h1>
   <!-- Need a button at the bottom to say "Print Reciept" or "Mark as paid" -->
 
   <!-- Also need a button that will say "Add to Order" -->

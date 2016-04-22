@@ -4,15 +4,13 @@
       <div class='nacho-header'>
         <h1 class='menu-title'>Nachos</h1>
       </div>
-      <ul>
       <% @nachos.each do |n| %>
         <%= form_for @order do |f| %>
-          <%= f.hidden_field :guest_id, value: @guest.id %>
+          <%= f.hidden_field :guest_id, value: params[:guest_id] %>
           <%= f.hidden_field :item_id, value: n.id %>
-          <%= f.submit "#{n.name} : $#{n.price}" %>
+          <%= f.submit "#{n.name} : $#{n.price}", class:'food' %>
         <% end %>
       <% end %>
-      </ul>
     </div>
   </div>
   <div class="row">
@@ -20,16 +18,16 @@
       <div class='taco-header'>
         <h1 class='menu-title'>Tacos</h1>
       </div>
-      <ul>
+
       <% @tacos.each do |t| %>
           <%= form_for @order do |f| %>
-            <%= f.hidden_field :guest_id, value: @guest %>
+            <%= f.hidden_field :guest_id, value: params[:guest_id] %>
             <%= f.hidden_field :item_id, value: t.id %>
-            <%= f.submit "#{t.name} : $#{t.price}" %>
+            <%= f.submit "#{t.name} : $#{t.price}", class:'food' %>
           <% end %>
         <!-- button to add to specific guests order -->
       <% end %>
-      </ul>
+
     </div>
   </div>
   <div class="row">
@@ -37,16 +35,14 @@
       <div class="booze-header">
         <h1 class='menu-title'>Booze</h1>
       </div>
-      <ul>
       <% @booze.each do |b| %>
         <%= form_for @order do |f| %>
-          <%= f.hidden_field :guest_id, value: @guest %>
+          <%= f.hidden_field :guest_id, value: params[:guest_id] %>
           <%= f.hidden_field :item_id, value: b.id %>
-          <%= f.submit "#{b.name} : $#{b.price}" %>
+          <%= f.submit "#{b.name} : $#{b.price}", class:'food' %>
         <% end %>
         <!-- button to add to specific guests order -->
       <% end %>
-      </ul>
     </div>
   </div>
 </div>
