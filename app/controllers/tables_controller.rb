@@ -5,5 +5,4 @@ class TablesController < ApplicationController
     @guests = Guest.where table_id: @table
     @guest = Guest.new
   end
-  
 end

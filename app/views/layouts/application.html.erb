@@ -8,9 +8,14 @@
 </head>
 <body>
   <header>
-    <%= button_to "Server Profile", profile_path(current_user.id), method: :get %>
-    <h1> TACHO LIBRE</h1>
-    <%= button_to "Logout", sessions_path, method: :destroy %>
+    <% if current_user %>
+      <%= button_to "Server Profile", profile_path(current_user.id), method: :get %>
+      <h1>TAC-HO LIBRE</h1>
+      <%= button_to "Logout", sessions_path, method: :destroy %>
+
+    <% else %>
+      <h1>TAC-HO LIBRE</h1>
+    <% end %>
   </header>
 
   <%= yield %>

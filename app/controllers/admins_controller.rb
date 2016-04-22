@@ -2,6 +2,8 @@ class AdminsController < ApplicationController
   def index
     @servers = Server.all
     @items = Item.all
-    @server = Server.new
+
+
+    @new_server = Server.new
   end
 end

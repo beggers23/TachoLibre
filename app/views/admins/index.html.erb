@@ -1,3 +1,35 @@
 <h1>Admins Only</h1>
 
-<%= button_to "New Server", new_server_path %>
+<div class='container'>
+  <div class='row'>
+    <div class='four columns'>
+      <h3> New Server </h3>
+      <%= form_for @new_server do |f| %>
+        <%= f.label :name %>
+        <%= f.text_field :name %>
+
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.label :confirm %>
+        <%= f.password_field :confirm %>
+
+        <p style='font-weight: 600;'>Admin? <%= f.check_box :admin %></p>
+        <%= f.submit %>
+      <% end %>
+    </div>
+    <div class='four columns'>
+      <h3> All Servers </h3>
+      <% @servers.each do |server| %>
+        <% if server.admin != true %>
+          <h3><%= server.name %> <%= link_to "X", server_path(server), method: :delete %></h3>
+        <% end %>
+      <% end %>
+    </div>
+    <div class='four columns'>
+      <h3> Update Menu </h3>
+      <!-- Make this a Modal that has all the Menu Items and ability to be added, and removed/updated -->
+
+    </div>
+  </div>
+</div>

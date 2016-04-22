@@ -20,10 +20,11 @@ Rails.application.routes.draw do
 
   resources :admins
   resources :orders
+
+  resources :servers, only: [:create, :destroy]
   # 300/table/2/guest
   #
   # 3000/guest/6/order
-  get 'admins/servers/new' => 'server#new', as: :new_server
 
   get 'servers/profile' => 'servers#profile', as: :profile
 

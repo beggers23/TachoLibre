@@ -15,6 +15,14 @@ class ServersController < ApplicationController
     @server = Server.new
   end
 
+  def destroy
+    session[:server_id] = nil
+
+    server = Server.find params[:id]
+    Server.delete server.id
+    redirect_to admins_path
+  end
+
   def profile
     authenticate!
     @server = current_user
