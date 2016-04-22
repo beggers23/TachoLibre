@@ -19,7 +19,11 @@ class GuestsController < ApplicationController
   def destroy
     guest = Guest.find params[:id]
     table = guest.table_id
-    Guest.destroy guest
+    
+    orders = Order.where guest_id: guest.id
+    orders.delete_all
+
+    Guest.destroy(guest)
     redirect_to table_path(table)
   end
 

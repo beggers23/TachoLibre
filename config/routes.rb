@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'admins/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,11 +18,12 @@ Rails.application.routes.draw do
     resources :items
   end
 
-
+  resources :admins
   resources :orders
   # 300/table/2/guest
   #
   # 3000/guest/6/order
+  get 'admins/servers/new' => 'server#new', as: :new_server
 
   get 'servers/profile' => 'servers#profile', as: :profile
 

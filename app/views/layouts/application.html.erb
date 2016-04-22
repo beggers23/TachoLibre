@@ -7,8 +7,13 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <header>
+    <%= button_to "Server Profile", profile_path(current_user.id), method: :get %>
+    <h1> TACHO LIBRE</h1>
+    <%= button_to "Logout", sessions_path, method: :destroy %>
+  </header>
 
-<%= yield %>
+  <%= yield %>
 
 </body>
 </html>

@@ -1,4 +1,4 @@
-<h1>Table</h1>
+<h1>Where the Tacho-Ritas Sit</h1>
 
 <!-- This is a link to add a new guest to the specific table -->
 <%= form_for @guest do |f| %>
@@ -10,7 +10,10 @@
 
 <% @guests.each_with_index do |guest,index| %>
   <!-- This is a link to check to see the orders this guest has made -->
-  <p><%= link_to "Guest #{index+1}", guest_path(guest.id) %> <%= link_to 'Remove', guest_path(guest), method: :delete %></p>
+  <div class='tachorita'>
+    <%= button_to "TACHO-RITA #{index+1}", guest_path(guest.id), method: :get, class:'name'%> <%= button_to 'X', guest_path(guest.id), method: :delete %>
+  </div>
+
 <% end %>
 
 <!-- Need to be able to define the table_id for each new guest as this current table's id -->

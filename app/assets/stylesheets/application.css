@@ -17,12 +17,21 @@
 ul {
   list-style: none;
 }
-
-
-.table-button a {
-  background: black;
+header {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
 }
-.table-button {
-  padding: 5em;
-  border: 1px solid black;
+
+.tachorita {
+  display: flex;
+  justify-content: center;
+}
+.table-button > a {
+  height: 10em;
+  width: 20em;
+}
+
+.total {
+  border-top: 5px solid black;
 }

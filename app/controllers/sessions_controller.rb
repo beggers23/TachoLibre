@@ -7,8 +7,12 @@ class SessionsController < ApplicationController
     server = Server.find_by name: username
 
     if server && server.authenticate(password)
-      session[:server_id] = server.id
-      redirect_to profile_path
+      if server.admin != true
+        session[:server_id] = server.id
+        redirect_to profile_path
+      else
+        redirect_to admins_path
+      end
     else
       redirect_to root_path
     end

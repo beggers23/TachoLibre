@@ -1,24 +1,28 @@
-<h1> Guessssttt</h1>
+<h1>This Lil Tacho-rita</h1>
 
-<%= link_to "Add To Order", guest_items_path(params[:id]) %>
+<%= link_to "View Table", table_path(@guest.table_id), class:'button' %>
+
+<!-- Also need a button that will say "Add to Order" -->
+<%= link_to "Add To Order", guest_items_path(params[:id]), class:'button' %>
+
+<!-- Need a button at the bottom to say "Print Reciept" or "Mark as paid" -->
+<!-- Button for checkout -->
+<%= button_to 'Print Receipt', guest_path(@guest.id), method: :delete %>
 
 <div class='container' id='receipt'>
   <!-- Each order will just be added to a list of orders that will show up on the view looking like a reciept -->
   <% @orders.each do |order| %>
-    <p><%= order.item.name %> | $<%= order.item.price %> <%= link_to 'X', order_path(order), method: :delete %></p>
+   <% if order.item.category != 'booze' %>
+   <!--  List them out here -->
+   <!-- Each item is clickable so that it can be removed from the list -->
+    <%= button_to "#{order.item.name} #{order.item.category} | $#{order.item.price}", order_path(order), method: :delete, class:'food' %>
+    <% else %>
+      <%= button_to "#{order.item.name} | $#{order.item.price}", order_path(order), method: :delete, class:'food' %>
+    <% end %>
   <% end %>
 
-  <h1>Total $<%= @total %></h1>
-  <!-- Need a button at the bottom to say "Print Reciept" or "Mark as paid" -->
-
-  <!-- Also need a button that will say "Add to Order" -->
-
-
-  <!-- For all orders where customer_id: params[:id] -->
-  <!--  List them out here -->
-
-  <!-- Each item is clickable so that it can be removed from the list -->
-
   <!-- Bill total at the bottom - adds up all the prices of all the items on the receipt -->
-  <!-- Button for checkout -->
+  <div class='total'>
+    <h1>Total $<%= @total %></h1>
+  </div>
 </div>
