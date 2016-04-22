@@ -10,7 +10,7 @@
 
 <% @guests.each_with_index do |guest,index| %>
   <!-- This is a link to check to see the orders this guest has made -->
-  <%= link_to "Guest #{index+1}", guest_path(guest.id) %>
+  <p><%= link_to "Guest #{index+1}", guest_path(guest.id) %> <%= link_to 'Remove', guest_path(guest), method: :delete %></p>
 <% end %>
 
 <!-- Need to be able to define the table_id for each new guest as this current table's id -->
