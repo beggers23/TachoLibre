@@ -4,6 +4,7 @@
   <div class='row'>
     <div class='four columns'>
       <h3> New Server </h3>
+      <hr>
       <%= form_for @new_server do |f| %>
         <%= f.label :name %>
         <%= f.text_field :name %>
@@ -20,6 +21,7 @@
     </div>
     <div class='four columns'>
       <h3> All Servers </h3>
+      <hr>
       <% @servers.each do |server| %>
         <% if server.admin != true %>
           <h3><%= server.name %> <%= link_to "X", server_path(server), method: :delete %></h3>
@@ -28,8 +30,25 @@
     </div>
     <div class='four columns'>
       <h3> Update Menu </h3>
+      <hr>
       <!-- Make this a Modal that has all the Menu Items and ability to be added, and removed/updated -->
+      <div class='item-edits'>
+        <%= form_for @new_item do |f| %>
+          <%= f.text_field :name, class:'edit' %>
+          <%= f.select :category, ['nacho','taco','booze'], class:'edit' %>
+          <%= f.number_field :price, class:'edit' %>
+          <%= f.submit %>
+        <% end %>
 
+        <% @items.each do |item| %>
+          <%= form_for item do |f| %>
+            <%= f.text_field :name, class:'edit' %>
+            <%= f.text_field :category, class:'edit' %>
+            <%= f.number_field :price, class:'edit' %>
+            <%= f.submit %>
+          <% end %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

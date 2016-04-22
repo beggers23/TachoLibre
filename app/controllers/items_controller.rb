@@ -8,4 +8,21 @@ class ItemsController < ApplicationController
 
     @guest = Guest.where id: params[:id]
   end
+  def create
+    item = Item.create item_params
+    redirect_to admins_path
+  end
+
+  def update
+    item = Item.find params[:id]
+    item.update item_params
+
+    redirect_to admins_path
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:name,:category,:price)
+  end
 end

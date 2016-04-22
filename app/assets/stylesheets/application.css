@@ -35,3 +35,15 @@ header {
 .total {
   border-top: 5px solid black;
 }
+
+hr {
+  border-color: black;
+}
+
+.item-edits {
+  height: 350px;
+  overflow-y: scroll;
+}
+.edit {
+  width: 80px !important;
+}

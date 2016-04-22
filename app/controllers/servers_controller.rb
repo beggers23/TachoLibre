@@ -8,6 +8,7 @@ class ServersController < ApplicationController
 
   def create
     server = Server.create server_params
+    6.times { Table.create server_id: server.id }
     redirect_to admins_path
   end
 
@@ -16,10 +17,18 @@ class ServersController < ApplicationController
   end
 
   def destroy
+    server = Server.find params[:id]
+    tables = Table.where server_id: server.id
+    guests = Guest.where table_id: tables.each { |table| table.id }
+    orders = Order.where guest_id: guests.each { |guest| guest.id }
+    
+    orders.delete_all
+    guests.delete_all
+    tables.delete_all
+
+    Server.delete server
     session[:server_id] = nil
 
-    server = Server.find params[:id]
-    Server.delete server.id
     redirect_to admins_path
   end
 

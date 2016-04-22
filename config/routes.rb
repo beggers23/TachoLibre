@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   resources :admins
   resources :orders
 
+  resources :items
+  
   resources :servers, only: [:create, :destroy]
   # 300/table/2/guest
   #
