@@ -1,0 +1,16 @@
+<h1>Table</h1>
+
+<!-- This is a link to add a new guest to the specific table -->
+<%= form_for @guest do |f| %>
+  <%= f.hidden_field :table_id, value: @table.id %>
+  <%= f.submit %>
+<% end %>
+<!--  Link to destroy all the guests with this specific table ID -->
+
+
+<% @guests.each_with_index do |guest,index| %>
+  <!-- This is a link to check to see the orders this guest has made -->
+  <%= link_to "Guest #{index+1}", guest_path(guest.id) %>
+<% end %>
+
+<!-- Need to be able to define the table_id for each new guest as this current table's id -->

@@ -1,0 +1,28 @@
+.nacho-header{
+  box-sizing: content-box;
+  border: 1px solid black;
+  background: url('https://36.media.tumblr.com/tumblr_lrypxyKT9G1qawj1go1_500.jpg');
+  background-size: cover;
+}
+
+.taco-header {
+  box-sizing: content-box;
+  border: 1px solid black;
+  background: url('tacos.jpg');
+  background-size: cover;
+  background-position: bottom;
+}
+
+.booze-header {
+  box-sizing: content-box;
+  border: 1px solid black;
+  background: url('modelos.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.menu-title {
+  color: white;
+  text-shadow: 2px 2px black;
+  text-transform: uppercase;
+}

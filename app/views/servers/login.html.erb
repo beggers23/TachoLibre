@@ -1,0 +1,19 @@
+<%= stylesheet_link_tag    'servers', media: 'all' %>
+
+
+<div id='login-box'>
+  <h1>TAC-HO LIBRE</h1>
+  <div class='container'>
+    <h2>Log In</h2>
+    <!-- Woo hoo log in to server some mo fuckahs -->
+    <%= form_tag '/sessions', method: :post do %>
+      <%= label_tag :name %>
+      <%= text_field_tag :name %>
+
+      <%= label_tag :password %>
+      <%= password_field_tag :password %>
+      <br>
+      <%= submit_tag 'Log In', id:'login' %>
+    <% end %>
+  </div>
+</div>
