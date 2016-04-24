@@ -17,7 +17,7 @@
           <% if current_user %>
             <li><%= link_to "Admin", admins_path %></li>
             <li><%= link_to "Kitchen", chefs_path %></li>
-            <li><%= link_to "Servers", profile_path(current_user.id) %></li>
+            <li><%= link_to "Tables", profile_path(current_user.id) %></li>
             <li><%= link_to "Logout", sessions_path, method: :delete %></li>
           <% else %>
             <li><%= link_to 'Login', root_path %>

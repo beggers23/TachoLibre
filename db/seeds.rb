@@ -22,8 +22,8 @@ Item.create([
   {category:'taco',name:'Al Pastor' ,price:1},
   {category:'taco',name:'Veggie' ,price:1},
 
-  # Alcoholo
-  {category:'booze',name:'Model' ,price:2},
+  # Alcoholos
+  {category:'booze',name:'Modelo' ,price:2},
   {category:'booze',name:'Corona' ,price:2},
   {category:'booze',name:'Tacate' ,price:2},
   {category:'booze',name:'Patron' ,price:4},

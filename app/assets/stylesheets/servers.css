@@ -1,39 +1,19 @@
-body {
-  /*background-image: url('http://tomorrowproducts.com/wp-content/uploads/2016/02/tumblr-taco-background-meaty-tacos.jpg');*/
+/*body {
+  background-image: url('http://tomorrowproducts.com/wp-content/uploads/2016/02/tumblr-taco-background-meaty-tacos.jpg');
   background-size: cover;
   text-align: center;
-}
+}*/
 
-.container {
+/*.container {
   color: black;
   text-align: center;
-  /*background: rgba(255,255,255,.8);*/
+  background: rgba(255,255,255,.8);
   width: 100%;
-}
+}*/
 
  /*iPhone 6 and smaller*/
 
-/*@media (min-width: 200px){
-  body{
-    font-size: 70px;
-
-  }
-
-  h1, h2 {
-    font-size: 100px;
-  }
-
-  #name, #password {
-    height: 200px;
-    text-align: center;
-  }
-  #login {
-    margin-top: 10rem;
-    width: 100%;
-    height: 200px;
-    font-size: 70px;
-  }
-}*/
+@media (min-width: 200px){ }
 
 
 /* Larger than mobile */
@@ -44,10 +24,7 @@ body {
 }
 
 /* Larger than tablet */
-@media (min-width: 750px) {}
-
-/* Larger than desktop */
-@media (min-width: 1000px) {}
+@media (min-width: 750px) { }
 
 /* Larger than Desktop HD */
 @media (min-width: 1200px) {}
