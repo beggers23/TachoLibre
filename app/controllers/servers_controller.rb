@@ -1,7 +1,6 @@
 class ServersController < ApplicationController
   before_action :authenticate!, only: :profile
 
-
   def login
 
   end
@@ -21,12 +20,13 @@ class ServersController < ApplicationController
     tables = Table.where server_id: server.id
     guests = Guest.where table_id: tables.each { |table| table.id }
     orders = Order.where guest_id: guests.each { |guest| guest.id }
-    
+
     orders.delete_all
     guests.delete_all
     tables.delete_all
 
     Server.delete server
+    
     session[:server_id] = nil
 
     redirect_to admins_path
@@ -41,6 +41,6 @@ class ServersController < ApplicationController
   private
 
   def server_params
-    params.require(:server).permit(:name,:password)
+    params.require(:server).permit(:name,:password, :admin, :waiter, :chef)
   end
 end

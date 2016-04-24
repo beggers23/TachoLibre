@@ -1,52 +1,84 @@
-<h1>Admins Only</h1>
-
 <div class='container'>
   <div class='row'>
-    <div class='four columns'>
-      <h3> New Server </h3>
+    <div class='col s12 m4 l4'>
+      <h3> NEW STAFF </h3>
       <hr>
-      <%= form_for @new_server do |f| %>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
-
-        <%= f.label :password %>
-        <%= f.password_field :password %>
-
-        <%= f.label :confirm %>
-        <%= f.password_field :confirm %>
-
-        <p style='font-weight: 600;'>Admin? <%= f.check_box :admin %></p>
-        <%= f.submit %>
-      <% end %>
-    </div>
-    <div class='four columns'>
-      <h3> All Servers </h3>
+        <%= form_for @new_server do |f| %>
+          <div class='input-field'>
+            <%= f.label :name %>
+            <%= f.text_field :name %>
+          </div>
+          <div class='input-field'>
+            <%= f.label :password %>
+            <%= f.password_field :password %>
+          </div>
+          <div class='input-field'>
+            <%= f.label :confirm %>
+            <%= f.password_field :confirm %>
+          </div>
+          <br>
+          <div class='row'>
+            <div class='col s4'><%= f.check_box :waiter %><%= f.label :waiter %></div>
+            <div class='col s4'><%= f.check_box :chef %><%= f.label :chef %></div>
+            <div class='col s4'><%= f.check_box :admin %><%= f.label :admin %></div>
+          </div>
+          <br>
+          <%= f.submit 'Create', class:'btn' %>
+        <% end %>
+      </div>
+    <div class='col s12 m4 l4'>
+      <h3> STAFF </h3>
       <hr>
       <% @servers.each do |server| %>
-        <% if server.admin != true %>
-          <h3><%= server.name %> <%= link_to "X", server_path(server), method: :delete %></h3>
+        <% if server.name != 'admin' %>
+          <% if server.chef == true %>
+            <% if server.waiter == true %>
+              <h4><%= server.name %> | W | C | <%= link_to "Delete", server_path(server), method: :delete, class:'btn waves-effect red' %></h4>
+            <% else %>
+              <h4><%= server.name %> | C | <%= link_to "Delete", server_path(server), method: :delete, class:'btn waves-effect red'  %></h4>
+            <% end%>
+          <% elsif server.waiter == true %>
+            <% if server.chef == true %>
+              <h4><%= server.name %> | W | C | <%= link_to "Delete", server_path(server), method: :delete, class:'btn waves-effect red'  %></h4>
+            <% else %>
+              <h4><%= server.name %> | W | <%= link_to "Delete", server_path(server), method: :delete, class:'btn waves-effect red'  %></h4>
+            <% end%>
+          <% end %>
         <% end %>
       <% end %>
     </div>
-    <div class='four columns'>
-      <h3> Update Menu </h3>
+    <div class='col s12 m4 l4'>
+      <h3>UPDATE</h3>
       <hr>
       <!-- Make this a Modal that has all the Menu Items and ability to be added, and removed/updated -->
       <div class='item-edits'>
         <%= form_for @new_item do |f| %>
-          <%= f.text_field :name, class:'edit' %>
-          <%= f.select :category, ['nacho','taco','booze'], class:'edit' %>
-          <%= f.number_field :price, class:'edit' %>
-          <%= f.submit %>
+        <div class='row'>
+          <div class='input-field col s4'>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          </div>
+          <div class='input-field col s4'>
+            <%= f.select :category, options_for_select( @categories.each{|c| c } ) %>
+          </div>
+
+          <div class='input-field col s4'>
+            <%= f.label :price %>
+            <%= f.number_field :price %>
+          </div>
+          <%= f.submit 'Create',class:'btn' %>
+        </div>
         <% end %>
 
         <% @items.each do |item| %>
           <%= form_for item do |f| %>
+          <div class='individual-item'>
             <%= f.text_field :name, class:'edit' %>
             <%= f.text_field :category, class:'edit' %>
             <%= f.number_field :price, class:'edit' %>
-            <%= f.submit %>
+            <%= f.submit 'update', class:'btn waves-effect'%> <%= button_to "X", admins_path, method: :delete, class:'btn waves-effect red' %>
           <% end %>
+          </div>
         <% end %>
       </div>
     </div>

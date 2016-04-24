@@ -20,6 +20,17 @@ class ItemsController < ApplicationController
     redirect_to admins_path
   end
 
+  def destroy
+    item = Item.find params[:id]
+
+    orders = Order.where item_id: item.id
+
+    orders.delete_all
+    item.delete
+
+    redirect_to admins_path
+  end
+
   private
 
   def item_params

@@ -5,20 +5,28 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <% if current_user %>
-      <%= button_to "Server Profile", profile_path(current_user.id), method: :get %>
-      <h1>TAC-HO LIBRE</h1>
-      <%= button_to "Logout", sessions_path, method: :destroy %>
 
-    <% else %>
-      <h1>TAC-HO LIBRE</h1>
-    <% end %>
-  </header>
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <%= link_to 'TACHO-LIBRE', root_path, class:"brand-logo" %>
+        <ul class="right hide-on-med-and-down">
+          <% if current_user %>
+            <li><%= link_to "Admin", admins_path %></li>
+            <li><%= link_to "Kitchen", chefs_path %></li>
+            <li><%= link_to "Servers", profile_path(current_user.id) %></li>
+            <li><%= link_to "Logout", sessions_path, method: :delete %></li>
+          <% else %>
+            <li><%= link_to 'Login', root_path %>
+          <% end %>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
-  <%= yield %>
-
+    <%= yield %>
 </body>
 </html>

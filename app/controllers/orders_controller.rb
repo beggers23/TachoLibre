@@ -12,9 +12,15 @@ class OrdersController < ApplicationController
     redirect_to guest_path(guest.id)
   end
 
+  def update
+    order = Order.find params[:id]
+    order.update (order_params)
+    redirect_to chefs_path
+  end
+
 
   private
   def order_params
-    params.require(:order).permit(:guest_id, :item_id)
+    params.require(:order).permit(:guest_id, :item_id, :order_status)
   end
 end

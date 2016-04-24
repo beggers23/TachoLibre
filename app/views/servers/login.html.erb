@@ -6,13 +6,19 @@
     <h2>Log In</h2>
     <!-- Woo hoo log in to serve some mo fuckahs -->
     <%= form_tag '/sessions', method: :post do %>
-      <%= label_tag :name %>
-      <%= text_field_tag :name %>
+    <div class='login-inputs'>
+      <div class='input-field'>
+        <%= label_tag :name %>
+        <%= text_field_tag :name%>
+      </div>
+      <div class='input-field'>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+      </div>
+    </div>
 
-      <%= label_tag :password %>
-      <%= password_field_tag :password %>
       <br>
-      <%= submit_tag 'Log In', id:'login' %>
+      <%= submit_tag 'Log In', class:'btn btn-large waves-effect waves-light yellow darken-2' %>
     <% end %>
   </div>
 </div>

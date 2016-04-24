@@ -6,22 +6,31 @@
   <% @tables.each_with_index do |table,index| %>
   <!-- Here are all the tables that need to be served -->
     <% if index==2 || index==5 %>
-    <div class='four columns'>
-      <div class='table-button'>
-        <%= link_to "Table #{index+1}", table_path(table.id), class:'button'%>
+    <div class='col s12 m6 l4'>
+      <div class='card small table-card'>
+        <div class='card-action'>
+          <%= link_to "Table #{index+1}", table_path(table.id), class:'button'%>
+        </div>
       </div>
     </div>
+  </div>
+
     <% elsif index==0 || index==3%>
       <div class='row'>
-        <div class='four columns'>
-          <div class='table-button'>
-            <%= link_to "Table #{index+1}", table_path(table.id), class:'button'%>
+        <div class='col s12 m6 l4'>
+          <div class='card small table-card'>
+            <div class='card-action'>
+              <%= link_to "Table #{index+1}", table_path(table.id), class:'button'%>
+            </div>
           </div>
         </div>
+
     <% else %>
-    <div class='four columns'>
-      <div class='table-button'>
-        <%= link_to "Table #{index+1}", table_path(table.id), class:'button'%>
+    <div class='col s12 m6 l4'>
+      <div class='card small table-card'>
+        <div class='card-action'>
+          <%= link_to "Table #{index+1}", table_path(table.id), class:'button'%>
+        </div>
       </div>
     </div>
     <% end %>

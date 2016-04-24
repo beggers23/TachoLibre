@@ -12,24 +12,32 @@
  *
  *= require_tree .
  *= require normalize
- *= require skeleton
- */
-ul {
-  list-style: none;
-}
-header {
-  display: flex;
-  text-align: center;
-  justify-content: space-between;
+ *= require materialize
+*/
+nav {
+  text-align: left;
+  background-image: url('http://tomorrowproducts.com/wp-content/uploads/2016/02/tumblr-taco-background-meaty-tacos.jpg');
+  background-size: cover;
+  color: white;
 }
 
 .tachorita {
+  margin: 1em;
   display: flex;
   justify-content: center;
+}
+.tachorita > form > input {
+  margin-right: 1em;
 }
 .table-button > a {
   height: 10em;
   width: 20em;
+}
+
+.table-card {
+  background-image: url('beerandtaco');
+  background-size: cover;
+  background-position: center;
 }
 
 .total {
@@ -46,4 +54,30 @@ hr {
 }
 .edit {
   width: 80px !important;
+}
+.button-row * {
+  display: inline-block;
+  margin-bottom: 2em;
+}
+
+.btn:focus {
+  outline: none !important;
+}
+
+.login-inputs {
+  margin: 0 auto;
+  width: 50%;
+}
+
+.individual-item {
+  border: 1px solid black;
+  padding: 1em;
+  margin-bottom: 1em;
+}
+
+.order {
+  border: 1px solid black;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 1em;
 }

@@ -30,3 +30,6 @@ Item.create([
   {category:'booze',name:'Margarita' ,price:4},
   {category:'booze',name:'Sangria' ,price:4}
   ])
+
+#Single Admin
+Server.create({name:'admin', password:'admin',admin:true})

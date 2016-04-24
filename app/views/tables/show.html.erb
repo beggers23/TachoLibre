@@ -1,19 +1,46 @@
-<h1>Where the Tacho-Ritas Sit</h1>
+<!-- <h1>Where the Tacho-Ritas Sit</h1> -->
 
 <!-- This is a link to add a new guest to the specific table -->
-<%= form_for @guest do |f| %>
-  <%= f.hidden_field :table_id, value: @table.id %>
-  <%= f.submit %>
-<% end %>
+
+  <%= form_for @guest do |f| %>
+    <%= f.hidden_field :table_id, value: @table.id %>
+    <%= f.submit 'Create TACHO-RITA', class:'btn ' %>
+  <% end %>
 <!--  Link to destroy all the guests with this specific table ID -->
 
 
 <% @guests.each_with_index do |guest,index| %>
   <!-- This is a link to check to see the orders this guest has made -->
-  <div class='tachorita'>
-    <%= button_to "TACHO-RITA #{index+1}", guest_path(guest.id), method: :get, class:'name'%> <%= button_to 'X', guest_path(guest.id), method: :delete %>
+
+  <% if index == 0 %>
+  <div class='row'>
+    <div class='col s12 m6 l6'>
+      <div class='card small'>
+          <i class="large material-icons black-text">perm_identity</i>
+        <div class='card-action tachorita'>
+          <%= button_to "TACHO-RITA #{index+1}", guest_path(guest.id), method: :get, class:'name btn'%> <%= button_to 'X', guest_path(guest.id), method: :delete, class:'btn waves-effect waves-light red' %>
+        </div>
+      </div>
+    </div>
+  <% elsif index%2 == 0 %>
+  <div class='row'>
+    <div class='col s12 m6 l6'>
+      <div class='card small'>
+          <i class="large material-icons black-text">perm_identity</i>
+        <div class='card-action tachorita'>
+          <%= button_to "TACHO-RITA #{index+1}", guest_path(guest.id), method: :get, class:'name btn'%> <%= button_to 'X', guest_path(guest.id), method: :delete, class:'btn waves-effect waves-light red' %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class='col s12 m6 l6'>
+      <div class='card small'>
+          <i class="large material-icons black-text">perm_identity</i>
+        <div class='card-action tachorita'>
+          <%= button_to "TACHO-RITA #{index+1}", guest_path(guest.id), method: :get, class:'name btn'%> <%= button_to 'X', guest_path(guest.id), method: :delete, class:'btn waves-effect waves-light red' %>
+        </div>
+      </div>
+    </div>
   </div>
-
+  <% end %>
 <% end %>
-
-<!-- Need to be able to define the table_id for each new guest as this current table's id -->

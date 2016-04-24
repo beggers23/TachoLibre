@@ -1,49 +1,43 @@
-<div class='container'>
-  <%= link_to "Back to Guest", guest_path(params[:guest_id]), class:'button' %>
-  <div class='row'>
-    <div class='tweleve columns'>
-      <div class='nacho-header'>
-        <h1 class='menu-title'>Nachos</h1>
-      </div>
+<%= link_to "Back to Guest", guest_path(params[:guest_id]), class:'btn' %>
+<div class='row'>
+  <div class='col s12 m4 l4'>
+    <ul class='collapsible' data-collapsible="accordion">
+      <li><div class="nacho-header collapsible-header"><h1>NACHOS</h1></div>
       <% @nachos.each do |n| %>
-        <%= form_for @order do |f| %>
+        <div class='collapsible-body'><%= form_for @order do |f| %>
           <%= f.hidden_field :guest_id, value: params[:guest_id] %>
           <%= f.hidden_field :item_id, value: n.id %>
-          <%= f.submit "#{n.name} : $#{n.price}", class:'food' %>
-        <% end %>
+          <%= f.submit "#{n.name} : $#{n.price}", class:'food btn waves-effect waves-light' %>
+        <% end %></div>
       <% end %>
-    </div>
+      </li>
+    </ul>
   </div>
-  <div class="row">
-    <div class="tweleve columns">
-      <div class='taco-header'>
-        <h1 class='menu-title'>Tacos</h1>
-      </div>
-
-      <% @tacos.each do |t| %>
-          <%= form_for @order do |f| %>
+    <div class='col s12 m4 l4'>
+      <ul class='collapsible' data-collapsible="accordion">
+        <li><div class="taco-header collapsible-header"><h1>TACOS</h1></div>
+        <% @tacos.each do |t| %>
+          <div class='collapsible-body'><%= form_for @order do |f| %>
             <%= f.hidden_field :guest_id, value: params[:guest_id] %>
             <%= f.hidden_field :item_id, value: t.id %>
-            <%= f.submit "#{t.name} : $#{t.price}", class:'food' %>
-          <% end %>
-        <!-- button to add to specific guests order -->
-      <% end %>
-
-    </div>
-  </div>
-  <div class="row">
-    <div class="tweleve columns">
-      <div class="booze-header">
-        <h1 class='menu-title'>Booze</h1>
-      </div>
-      <% @booze.each do |b| %>
-        <%= form_for @order do |f| %>
-          <%= f.hidden_field :guest_id, value: params[:guest_id] %>
-          <%= f.hidden_field :item_id, value: b.id %>
-          <%= f.submit "#{b.name} : $#{b.price}", class:'food' %>
+            <%= f.submit "#{t.name} : $#{t.price}", class:'food btn waves-effect waves-light' %>
+          <% end %></div>
         <% end %>
-        <!-- button to add to specific guests order -->
-      <% end %>
+        </li>
+      </ul>
+    </div>
+    <div class='col s12 m4 l4'>
+      <ul class='collapsible' data-collapsible="accordion">
+        <li><div class="booze-header collapsible-header"><h1>BOOZE</h1></div>
+        <% @booze.each do |b| %>
+          <div class='collapsible-body'><%= form_for @order do |f| %>
+            <%= f.hidden_field :guest_id, value: params[:guest_id] %>
+            <%= f.hidden_field :item_id, value: b.id %>
+            <%= f.submit "#{b.name} : $#{b.price}", class:'food btn waves-effect waves-light' %>
+          <% end %></div>
+        <% end %>
+        </li>
+      </ul>
     </div>
   </div>
 </div>

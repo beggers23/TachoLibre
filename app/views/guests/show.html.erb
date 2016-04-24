@@ -1,23 +1,35 @@
 <h1>This Lil Tacho-rita</h1>
 
-<%= link_to "View Table", table_path(@guest.table_id), class:'button' %>
+<div class='row'>
+  <div class='button-row'>
+    <%= button_to "View Table", table_path(@guest.table_id), method: :get, class:'btn waves-effect' %>
 
-<!-- Also need a button that will say "Add to Order" -->
-<%= link_to "Add To Order", guest_items_path(params[:id]), class:'button' %>
+  <!-- Also need a button that will say "Add to Order" -->
+    <%= button_to "Add To Order", guest_items_path(params[:id]), method: :get, class:'btn waves-effect' %>
 
-<!-- Need a button at the bottom to say "Print Reciept" or "Mark as paid" -->
-<!-- Button for checkout -->
-<%= button_to 'Print Receipt', guest_path(@guest.id), method: :delete %>
+  <!-- Need a button at the bottom to say "Print Reciept" or "Mark as paid" -->
+  <!-- Button for checkout -->
+    <%= button_to 'Print Receipt', guest_path(@guest.id), method: :delete, class:'btn waves-effect' %>
+  </div>
+</div>
 
 <div class='container' id='receipt'>
   <!-- Each order will just be added to a list of orders that will show up on the view looking like a reciept -->
   <% @orders.each do |order| %>
-   <% if order.item.category != 'booze' %>
-   <!--  List them out here -->
-   <!-- Each item is clickable so that it can be removed from the list -->
-    <%= button_to "#{order.item.name} #{order.item.category} | $#{order.item.price}", order_path(order), method: :delete, class:'food' %>
+    <!--  List them out here -->
+    <!-- Each item is clickable so that it can be removed from the list -->
+    <% if order.order_status %>
+      <% if order.item.category != 'booze' %>
+        <%= button_to "#{order.item.name} #{order.item.category} | $#{order.item.price}", order_path(order), method: :delete, class:'food green' %>
+      <% else %>
+        <%= button_to "#{order.item.name} | $#{order.item.price}", order_path(order), method: :delete, class:'food green' %>
+      <% end %>
     <% else %>
-      <%= button_to "#{order.item.name} | $#{order.item.price}", order_path(order), method: :delete, class:'food' %>
+      <% if order.item.category != 'booze' %>
+        <%= button_to "#{order.item.name} #{order.item.category} | $#{order.item.price}", order_path(order), method: :delete, class:'food red' %>
+      <% else %>
+        <%= button_to "#{order.item.name} | $#{order.item.price}", order_path(order), method: :delete, class:'food red' %>
+      <% end %>
     <% end %>
   <% end %>
 

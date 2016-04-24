@@ -3,6 +3,9 @@
   border: 1px solid black;
   background: url('https://36.media.tumblr.com/tumblr_lrypxyKT9G1qawj1go1_500.jpg');
   background-size: cover;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-transform: uppercase;
 }
 
 .taco-header {
@@ -11,6 +14,9 @@
   background: url('tacos.jpg');
   background-size: cover;
   background-position: bottom;
+  color: white;
+  text-shadow: 2px 2px black;
+  text-transform: uppercase;
 }
 
 .booze-header {
@@ -19,23 +25,11 @@
   background: url('modelos.jpg');
   background-size: cover;
   background-position: center;
-}
-
-.menu-title {
   color: white;
   text-shadow: 2px 2px black;
   text-transform: uppercase;
 }
-
 .food {
   width: 100%;
-  height: 2em !important;
-  font-size: 2em !important;
-  margin: 0;
-  padding: 0;
-}
-
-form {
-  margin: 0 !important;
-  padding: 0;
+  border-radius: 0 !important;
 }

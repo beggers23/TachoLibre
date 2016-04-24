@@ -1,18 +1,17 @@
 Rails.application.routes.draw do
-  get 'admins/index'
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  root 'servers#login' # TODO this should not be the root route
+  root 'servers#login'
 
   resources :items, only: :index
 
   resources :tables, only: :show do
     resources :guests
   end
+
   # Nest menu inside guests and orders inside guests
   resources :guests do
     resources :items
@@ -20,13 +19,11 @@ Rails.application.routes.draw do
 
   resources :admins
   resources :orders
+  resources :chefs
 
   resources :items
-  
+
   resources :servers, only: [:create, :destroy]
-  # 300/table/2/guest
-  #
-  # 3000/guest/6/order
 
   get 'servers/profile' => 'servers#profile', as: :profile
 

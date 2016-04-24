@@ -1,0 +1,32 @@
+
+<div class='row'>
+  <div class='col s12 m6 l6'>
+    <h1>BARTENDER</h1>
+    <% @orders.each_with_index do |order, index| %>
+      <% item = @items.find order.item_id %>
+        <% if item.category == 'booze' && order.order_status != true %>
+          <%= form_for order do |f| %>
+            <%= f.hidden_field :order_status, value: true %>
+            <%= f.submit  "Order Number: #{order.id} | #{item.name}" , class:"btn order red darken-4" %>
+          <% end %>
+
+        <% end %>
+    <% end %>
+
+  </div>
+
+  <div class='col s12 m6 l6'>
+    <h1>CHEFS</h1>
+
+    <% @orders.each_with_index do |order, index| %>
+      <% item = @items.find order.item_id %>
+        <% if item.category != 'booze' && order.order_status != true %>
+          <%= form_for order do |f| %>
+            <%= f.hidden_field :order_status, value: true %>
+            <%= f.submit  "Order Number: #{order.id} | #{item.name} #{item.category}" , class:"btn order red darken-4" %>
+          <% end %>
+
+        <% end %>
+    <% end %>
+  </div>
+</div>

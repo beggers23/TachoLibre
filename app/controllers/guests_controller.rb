@@ -23,7 +23,7 @@ class GuestsController < ApplicationController
     orders = Order.where guest_id: guest.id
     orders.delete_all
 
-    Guest.destroy(guest)
+    Guest.delete(guest.id)
     redirect_to table_path(table)
   end
 
