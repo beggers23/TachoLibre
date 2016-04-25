@@ -20,6 +20,7 @@ The Admin is able to add or remove Employees from the business and they can do s
 
 ## Wireframes
 
+
 ## Screenshots
 #### Login
 <img src='app/assets/images/loginscreenshot.png'>
