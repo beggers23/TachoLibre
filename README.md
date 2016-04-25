@@ -20,19 +20,19 @@ The Admin is able to add or remove Employees from the business and they can do s
 
 ## Wireframes
 #### Frame 1
-<img src='app/assets/images/frame1.jpg'>
+<img src='app/assets/images/frame1.png'>
 
 #### Frame 2
-<img src='app/assets/images/frame2.jpg'>
+<img src='app/assets/images/frame2.png'>
 
 #### Frame 3
-<img src='app/assets/images/frame3.jpg'>
+<img src='app/assets/images/frame3.png'>
 
 #### Frame 4
-<img src='app/assets/images/frame4.jpg'>
+<img src='app/assets/images/frame4.png'>
 
 #### Frame 5
-<img src='app/assets/images/frame5.jpg'>
+<img src='app/assets/images/frame5.png'>
 
 
 ## Screenshots
