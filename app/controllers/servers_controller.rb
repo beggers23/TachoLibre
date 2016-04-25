@@ -26,14 +26,17 @@ class ServersController < ApplicationController
     tables.delete_all
 
     Server.delete server
-    
+
     session[:server_id] = nil
 
     redirect_to admins_path
   end
 
   def profile
-    authenticate!
+    if current_user.waiter != true
+      redirect_to root_path
+    end
+
     @server = current_user
     @tables = Table.where server_id: @server.id
   end
