@@ -8,18 +8,17 @@ class SessionsController < ApplicationController
 
     if server && server.authenticate(password)
 
-      if server.admin != true && server.chef != true
+      if server.admin
         session[:server_id] = server.id
-        redirect_to profile_path
+        redirect_to admins_path
 
       elsif server.admin != true && server.chef
         session[:server_id] = server.id
         redirect_to chefs_path
-
-      elsif server.admin
-        redirect_to admins_path
+      else
+        session[:server_id] = server.id
+        redirect_to profile_path
       end
-      
     else
       redirect_to root_path
     end

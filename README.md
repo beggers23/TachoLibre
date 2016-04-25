@@ -13,3 +13,10 @@ Then the order is sent to the kitchen, where the chef has to start cooking. A li
 After the chef finishes and processes an order, the server will be able to see that the order had been processed and it was waiting for them to bring to the table.
 
 The Admin is able to add or remove Employees from the business and they can do so in the middle of the evening of work! They are also able to change the menu items that are offered and remove them if they wish.
+
+
+## ERD's
+
+## Wireframes
+
+## Screenshots
