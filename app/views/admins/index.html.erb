@@ -43,6 +43,8 @@
             <% else %>
               <h4><%= server.name %> | W | <%= link_to "Delete", server_path(server), method: :delete, class:'btn waves-effect red'  %></h4>
             <% end%>
+          <% else %>
+            <h4><%= server.name %> | A | <%= link_to "Delete", server_path(server), method: :delete, class:'btn waves-effect red'  %></h4>
           <% end %>
         <% end %>
       <% end %>
