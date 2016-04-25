@@ -19,6 +19,20 @@ The Admin is able to add or remove Employees from the business and they can do s
 ## ERD's
 
 ## Wireframes
+#### Frame 1
+<img src='app/assests/images/frame1.jpg'>
+
+#### Frame 2
+<img src='app/assests/images/frame2.jpg'>
+
+#### Frame 3
+<img src='app/assests/images/frame3.jpg'>
+
+#### Frame 4
+<img src='app/assests/images/frame4.jpg'>
+
+#### Frame 5
+<img src='app/assests/images/frame5.jpg'>
 
 
 ## Screenshots
