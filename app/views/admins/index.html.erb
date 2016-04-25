@@ -74,10 +74,11 @@
           <%= form_for item do |f| %>
           <div class='individual-item'>
             <%= f.text_field :name, class:'edit' %>
-            <%= f.select :category, options_for_select( @categories.each{|c| c } ) %>
+            <%= f.text_field :category, class:'edit' %>
             <%= f.number_field :price, class:'edit' %>
-            <%= f.submit 'update', class:'btn waves-effect'%> <%= button_to "X", admins_path, method: :delete, class:'btn waves-effect red' %>
+            <%= f.submit 'update', class:'btn waves-effect', method: :post %>
           <% end %>
+          <%= button_to "X", admins_path, method: :delete, class:'btn waves-effect red' %>
           </div>
         <% end %>
       </div>
