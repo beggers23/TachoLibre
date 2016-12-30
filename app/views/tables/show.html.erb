@@ -1,7 +1,7 @@
 <!-- <h1>Where the Tacho-Ritas Sit</h1> -->
-
+<h5>Guests will be shown here. If none appear, add one using the 'Create TACHO-RITA' button</h5>
+<h2>Tacho-Ritas</h2>
 <!-- This is a link to add a new guest to the specific table -->
-
   <%= form_for @guest do |f| %>
     <%= f.hidden_field :table_id, value: @table.id %>
     <%= f.submit 'Create TACHO-RITA', class:'btn ' %>

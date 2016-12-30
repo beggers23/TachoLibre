@@ -118,13 +118,13 @@ hr {
   text-shadow: 2px 2px black;
   text-transform: uppercase;
 }
-.food {
-  width: 100%;
-  border-radius: 0 !important;
-}
 
 .food {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  border-radius: 0 !important;
   height: 2em !important;
   font-size: 2em !important;
   margin: 0;

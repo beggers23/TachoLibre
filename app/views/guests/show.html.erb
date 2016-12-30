@@ -1,9 +1,8 @@
-<h5>If there are no orders, please add by following the Add To Order button</h5>
-<h5>If item is color 'Red', the order is still being processed in the kitchen</h5>
-<h5>If the item is color 'Green', the order is complete and the guest should have their food</h5>
+<h5>If there are no orders, follow the 'Add To Order' button</h5>
+<h5>If 'Red', the order is being worked on. If 'Green', guest should have their food</h5>
 <h5>When guests are done, print receipt will remove the guest from the table</h5>
 
-<h1>This Lil Tacho-rita</h1>
+<h1>Guest Order</h1>
 <div class='row'>
   <div class='button-row'>
     <%= button_to "View Table", table_path(@guest.table_id), method: :get, class:'btn waves-effect' %>
