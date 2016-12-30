@@ -4,7 +4,7 @@
 <div id='login-box'>
   <div class='container'>
     <h2>Log In</h2>
-    <!-- Woo hoo log in to serve some mo fuckahs -->
+    <!-- Woo hoo log in to serve some tachoritas! -->
     <%= form_tag '/sessions', method: :post do %>
     <div class='login-inputs'>
       <div class='input-field'>
@@ -20,10 +20,11 @@
       <br>
       <%= submit_tag 'Log In', class:'btn btn-large waves-effect waves-light yellow darken-2' %>
     <% end %>
-
-    <p>Please choose on of the following credentials</p>
-    <p> <b>Username:</b> Waiter <b>Password:</b> password </p>
-    <p> <b>Username:</b> Chef <b>Password:</b> password</p>
-    <p> <b>Usernam:</b> Admin <b>Password:</b> admin</p>
+    <div class='credentials'>
+      <h5>Please choose one of the following credentials</h5>
+      <p> <b>Username:</b> Admin <b>Password:</b> admin</p>
+      <p> <b>Username:</b> Waiter <b>Password:</b> password </p>
+      <p> <b>Username:</b> Chef <b>Password:</b> password</p>
+    </div>
   </div>
 </div>

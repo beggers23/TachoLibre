@@ -135,3 +135,7 @@ form {
   margin: 0 !important;
   padding: 0;
 }
+
+.credentials {
+  text-align: center;
+}
